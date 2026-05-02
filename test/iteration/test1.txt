@@ -1,0 +1,681 @@
+=== Iteration 1 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+   -> U GAME OVER (Angka tidak sesuai urutan)
+
+=== Iteration 2 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+
+=== Iteration 3 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+
+=== Iteration 4 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : L
+XXXXXXX
+X0****X
+X**X**X
+XZ***OX
+X1***LX
+X***X*X
+XXXXXXX
+
+   -> D GAME OVER (Angka tidak sesuai urutan)
+
+=== Iteration 5 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : R
+XXXXXXX
+X0****X
+X**X**X
+X****ZX
+X1***LX
+X***X*X
+XXXXXXX
+
+   -> D GAME OVER (Melewati Lava)!
+
+=== Iteration 6 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : L
+XXXXXXX
+X0****X
+X**X**X
+XZ***OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 4 : U
+XXXXXXX
+XZ****X
+X**X**X
+X****OX
+X1***LX
+X***X*X
+XXXXXXX
+
+
+=== Iteration 7 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : R
+XXXXXXX
+X0****X
+X**X**X
+X****ZX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 4 : U
+XXXXXXX
+X0***ZX
+X**X**X
+X****OX
+X1***LX
+X***X*X
+XXXXXXX
+
+   -> D GAME OVER (Melewati Lava)!
+
+=== Iteration 8 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : L
+XXXXXXX
+X0****X
+X**X**X
+XZ***OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 4 : R
+XXXXXXX
+X0****X
+X**X**X
+X****ZX
+X1***LX
+X***X*X
+XXXXXXX
+
+=== Iteration 9 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : L
+XXXXXXX
+X0****X
+X**X**X
+XZ***OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 4 : U
+XXXXXXX
+XZ****X
+X**X**X
+X****OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 5 : R
+XXXXXXX
+X****ZX
+X**X**X
+X****OX
+X1***LX
+X***X*X
+XXXXXXX
+
+   -> D GAME OVER (Melewati Lava)!
+
+=== Iteration 10 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : L
+XXXXXXX
+X0****X
+X**X**X
+XZ***OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 4 : U
+XXXXXXX
+XZ****X
+X**X**X
+X****OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 5 : D
+XXXXXXX
+X*****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+
+=== Iteration 11 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : L
+XXXXXXX
+X0****X
+X**X**X
+XZ***OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 4 : U
+XXXXXXX
+XZ****X
+X**X**X
+X****OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 5 : D
+XXXXXXX
+X*****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 6 : R
+XXXXXXX
+X*****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+
+=== Iteration 12 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : L
+XXXXXXX
+X0****X
+X**X**X
+XZ***OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 4 : U
+XXXXXXX
+XZ****X
+X**X**X
+X****OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 5 : D
+XXXXXXX
+X*****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 6 : R
+XXXXXXX
+X*****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 7 : U
+XXXXXXX
+X*****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+
+=== Iteration 13 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : L
+XXXXXXX
+X0****X
+X**X**X
+XZ***OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 4 : U
+XXXXXXX
+XZ****X
+X**X**X
+X****OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 5 : D
+XXXXXXX
+X*****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 6 : U
+XXXXXXX
+XZ****X
+X**X**X
+X****OX
+X1***LX
+X***X*X
+XXXXXXX
+
+
+=== Iteration 14 ===
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 1 : R
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 2 : U
+XXXXXXX
+X0****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 3 : L
+XXXXXXX
+X0****X
+X**X**X
+XZ***OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 4 : U
+XXXXXXX
+XZ****X
+X**X**X
+X****OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 5 : D
+XXXXXXX
+X*****X
+X**X**X
+X****OX
+X1***LX
+XZ**X*X
+XXXXXXX
+
+Step 6 : R
+XXXXXXX
+X*****X
+X**X**X
+X****OX
+X1***LX
+X**ZX*X
+XXXXXXX
+
+Step 7 : U
+XXXXXXX
+X*****X
+X**X**X
+X**Z*OX
+X1***LX
+X***X*X
+XXXXXXX
+
+Step 8 : R
+XXXXXXX
+X*****X
+X**X**X
+X****ZX
+X1***LX
+X***X*X
+XXXXXXX
+
+Found Solution
+
