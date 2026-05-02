@@ -60,7 +60,7 @@ public class Algorithm{
             case "H2":
                 return manhattan * minCost; // INI NANTI AJA PAS BIKIN BONUS
             case "H3":
-                return manhattan * minCost; // INI NANTI AJA PAS BIKIN BONUS
+                return (manhattan + Math.abs(targetX - map.getTargetX()) + Math.abs(targetY - map.getTargetY())) * minCost; 
             case "H1":
             default:
                 return manhattan * minCost;
@@ -106,8 +106,15 @@ public class Algorithm{
         }
         if (!moved) return null;
         int newG = (cur.getG()) + costStep;
-        int newH = heuristicCost(x, y, curTarget, algorithm);
-        int newF = (algorithm.equals("GBFS")) ? newH: (newG + newH);
+        int newH = 0;
+        int newF = newG;
+        
+        if (algorithm.equals("BFS") || algorithm.equals("DFS")){
+            newF = newG;
+        } else {
+            newH = heuristicCost(x, y, curTarget, algorithm);
+            newF = (algorithm.equals("GBFS")) ? newH: (newG + newH);
+        }
 
         boolean isTargetFulfilled = (curTarget > prevTarget);
         return new State(x, y, newG, newF, cur.getSteps() + dir, curTarget, isTargetFulfilled);
@@ -115,6 +122,16 @@ public class Algorithm{
     }
 
     public State solve(String algorithm){
+        if (algorithm.equals("BFS")){
+            return solveBFS();
+        } else if (algorithm.equals("DFS")){
+            return solveDFS();
+        } else {
+            return solveBestFirst(algorithm);
+        }
+    }
+
+    private State solveBestFirst(String algorithm){
         PriorityQueue<State> queue = new PriorityQueue<>();
         boolean[][][] visited = new boolean[map.getRowCount()][map.getColCount()][11];
 
@@ -153,6 +170,104 @@ public class Algorithm{
                     State nextState = slide(cur,dx[i], dy[i],nextDir,algorithm,wr);
                     if (nextState != null && !visited[nextState.getX()][nextState.getY()][nextState.getCurDigit()]){
                         queue.add(nextState);
+                    }
+                }
+                wr.println();
+            }
+        } catch (IOException e){
+            System.out.println("Gagal menulis iterasi ke file iterasi.txt");
+        }
+        return null;
+    }
+
+    private State solveBFS(){
+        Queue<State> queue = new LinkedList<>();
+        boolean[][][] visited = new boolean[map.getRowCount()][map.getColCount()][11];
+
+        try (PrintWriter wr =new PrintWriter(new FileWriter(iterationFilePath))){
+            State start = new State(map.getInitialX(), map.getInitialY(), 0, 0, "", 0, false);
+            queue.add(start);
+
+            while(!queue.isEmpty()){
+                State cur = queue.poll();
+                totalIteration++;
+                wr.println("=== Iteration " + totalIteration + " ===");
+                wr.println("Initial");
+                for (char[] row : loadSteps(0, cur.getSteps())){
+                    wr.println(new String(row));
+                }
+                wr.println();
+                for (int i = 1; i <= cur.getSteps().length(); i++){
+                    wr.println("Step " + i + " : " + cur.getSteps().charAt(i-1));
+                    for (char[] row : loadSteps(i, cur.getSteps())){
+                        wr.println(new String(row));
+                    }
+                    wr.println();
+                }
+
+                if (map.getBoard()[cur.getX()][cur.getY()] == 'O' && cur.getCurDigit() > map.getMaxDigit()) {
+                    wr.println("Found Solution");
+                    wr.println();
+                    return cur; 
+                }
+
+                if (visited[cur.getX()][cur.getY()][cur.getCurDigit()]) continue;
+                visited[cur.getX()][cur.getY()][cur.getCurDigit()] = true;
+
+                for (int i = 0; i < 4; i++){
+                    char nextDir = dir[i];
+                    State nextState = slide(cur,dx[i], dy[i],nextDir,"BFS",wr);
+                    if (nextState != null && !visited[nextState.getX()][nextState.getY()][nextState.getCurDigit()]){
+                        queue.add(nextState);
+                    }
+                }
+                wr.println();
+            }
+        } catch (IOException e){
+            System.out.println("Gagal menulis iterasi ke file iterasi.txt");
+        }
+        return null;
+    }
+
+    private State solveDFS(){
+        Deque<State> stack = new ArrayDeque<>();
+        boolean[][][] visited = new boolean[map.getRowCount()][map.getColCount()][11];
+
+        try (PrintWriter wr =new PrintWriter(new FileWriter(iterationFilePath))){
+            State start = new State(map.getInitialX(), map.getInitialY(), 0, 0, "", 0, false);
+            stack.push(start);
+
+            while(!stack.isEmpty()){
+                State cur = stack.pop();
+                totalIteration++;
+                wr.println("=== Iteration " + totalIteration + " ===");
+                wr.println("Initial");
+                for (char[] row : loadSteps(0, cur.getSteps())){
+                    wr.println(new String(row));
+                }
+                wr.println();
+                for (int i = 1; i <= cur.getSteps().length(); i++){
+                    wr.println("Step " + i + " : " + cur.getSteps().charAt(i-1));
+                    for (char[] row : loadSteps(i, cur.getSteps())){
+                        wr.println(new String(row));
+                    }
+                    wr.println();
+                }
+
+                if (map.getBoard()[cur.getX()][cur.getY()] == 'O' && cur.getCurDigit() > map.getMaxDigit()) {
+                    wr.println("Found Solution");
+                    wr.println();
+                    return cur; 
+                }
+
+                if (visited[cur.getX()][cur.getY()][cur.getCurDigit()]) continue;
+                visited[cur.getX()][cur.getY()][cur.getCurDigit()] = true;
+
+                for (int i = 0; i < 4; i++){
+                    char nextDir = dir[i];
+                    State nextState = slide(cur,dx[i], dy[i],nextDir,"DFS",wr);
+                    if (nextState != null && !visited[nextState.getX()][nextState.getY()][nextState.getCurDigit()]){
+                        stack.push(nextState);
                     }
                 }
                 wr.println();

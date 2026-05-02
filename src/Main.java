@@ -11,7 +11,7 @@ public class Main{
         String inputPath = "../test/input/" + inputName;
         if (!map.parseFile(inputPath)) return;
 
-        System.out.println(">> Algoritma apa yang anda pilih? (UCS/GBFS/A*)");
+        System.out.println(">> Algoritma apa yang anda pilih? (UCS/GBFS/A*/BFS/DFS)");
         String algorithm = sc.nextLine().toUpperCase();   
 
         String hrstk= "H1";
