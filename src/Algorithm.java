@@ -288,7 +288,6 @@ public class Algorithm{
         int curX = map.getInitialX();
         int curY = map.getInitialY();
         board[curX][curY] = 'Z';
-        int curDigit = 0;
 
         for(int i = 0; i < n; i++){
             char move = steps.charAt(i);
@@ -299,37 +298,24 @@ public class Algorithm{
             else if(move == 'L') dY = -1;
             else if(move == 'R') dY = 1;
 
-            // Ini buat ngeganti yang sebelumnya udah dilewatin posisi posisinya jadi *
-            char oriTile = map.getBoard()[curX][curY];
-            if (oriTile == 'Z'){
-                board[curX][curY] = '*';
-            }
-            else if(Character.isDigit(oriTile)){
-                int digit = Character.getNumericValue(oriTile);
-                if (digit < curDigit){
-                    board[curX][curY] = '*';
-                } else {
-                    board[curX][curY] = oriTile;
-                }
-            } else { 
-                board[curX][curY]= oriTile;
-            }
-
             while (true){
                 int newX = curX + dX;
                 int newY = curY + dY;
                 if (board[newX][newY] == 'X')break;
+
+                char oriTile = map.getBoard()[curX][curY];
+                if (Character.isDigit(oriTile)) {
+                    board[curX][curY] = oriTile;
+                } else if (oriTile != 'O' && oriTile != 'X' && oriTile != 'L') {
+                    board[curX][curY] = '*';
+                } else {
+                    board[curX][curY] = oriTile;
+                }
+
                 curX = newX;
                 curY = newY;
-
-                char tile = map.getBoard()[curX][curY];
-                if(Character.isDigit(tile)){
-                    int digitTile = Character.getNumericValue(tile);
-                    if(digitTile == curDigit){
-                        curDigit++;
-                    }
-                }
             }
+
             board[curX][curY] = 'Z';
         }
         return board;

@@ -12,7 +12,13 @@ public class GUIMain extends JFrame {
     private String currentHeuristic = "H1";
     private int currentStep = 0;
     private long executionTime;
+    private Timer animationTimer;
+    private int animationFromStep = 0;
+    private int animationToStep = 0;
+    private float animationProgress = 1f;
 
+    private static final int ANIMATION_DURATION_MS = 180;
+    private static final int ANIMATION_FRAME_MS = 16;
     private JPanel boardPanel;
     private JComboBox<String> algorithmSelector;
     private JComboBox<String> heuristicSelector;
@@ -32,7 +38,6 @@ public class GUIMain extends JFrame {
     private static final Color BORDER_COLOR = new Color(220, 220, 220);  // Subtle border
 
     public GUIMain(){
-        // Set look and feel untuk consistency
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -61,6 +66,13 @@ public class GUIMain extends JFrame {
         boardPanel.setBackground(Color.WHITE);
         boardPanel.setBorder(BorderFactory.createLineBorder(BORDER_COLOR, 1));
         boardPanel.setFocusable(true);
+
+        boardPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                boardPanel.requestFocusInWindow();
+            }
+        });
         boardPanel.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e){
@@ -324,6 +336,10 @@ public class GUIMain extends JFrame {
     private void solve() {
         if (map == null) return;
 
+        if (animationTimer != null && animationTimer.isRunning()) {
+            animationTimer.stop();
+        }
+
         solveButton.setEnabled(false);
         algorithm = new Algorithm(map);
         algorithm.setHeuristicType(currentHeuristic);
@@ -360,15 +376,13 @@ public class GUIMain extends JFrame {
 
     private void nextStep() {
         if (solution != null && currentStep < solution.getSteps().length()) {
-            currentStep++;
-            updateBoard();
+            animateToStep(currentStep + 1);
         }
     }
 
     private void previousStep() {
         if (currentStep > 0) {
-            currentStep--;
-            updateBoard();
+            animateToStep(currentStep - 1);
         }
     }
 
@@ -436,6 +450,20 @@ public class GUIMain extends JFrame {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         char[][] board = (solution != null) ? algorithm.loadSteps(currentStep, solution.getSteps()) : map.getBoard();
+
+        char[][] fromBoard = null;
+        char[][] toBoard = null;
+        Point fromPos = null;
+        Point toPos = null;
+
+        boolean animating = animationTimer != null && animationTimer.isRunning();
+        if (animating && solution != null) {
+            fromBoard = algorithm.loadSteps(animationFromStep, solution.getSteps());
+            toBoard = algorithm.loadSteps(animationToStep, solution.getSteps());
+            fromPos = findPlayerPosition(fromBoard);
+            toPos = findPlayerPosition(toBoard);
+        }
+
         int[][] costs = map.getBoardCosts();
 
         for (int i = 0; i < map.getRowCount(); i++) {
@@ -449,17 +477,50 @@ public class GUIMain extends JFrame {
                 g2d.setColor(bgColor);
                 g2d.fillRect(x, y, CELL_SIZE, CELL_SIZE);
 
-                g2d.setColor(Color.BLACK);
+                g2d.setColor(BORDER_COLOR);
                 g2d.drawRect(x, y, CELL_SIZE, CELL_SIZE);
 
-                g2d.setFont(new Font("Arial", Font.BOLD, 16));
-                g2d.setColor(getSymbolColor(cell));
-                String symbol = String.valueOf(cell);
-                FontMetrics fm = g2d.getFontMetrics();
-                int sx = x + (CELL_SIZE - fm.stringWidth(symbol)) / 2;
-                int sy = y + ((CELL_SIZE - fm.getHeight()) / 2) + fm.getAscent();
-                g2d.drawString(symbol, sx, sy);
+                if (cell == 'Z') {
+                    if (!animating) {
+                        g2d.setColor(ACCENT_COLOR);
+                        g2d.fillOval(x + 6, y + 6, CELL_SIZE - 12, CELL_SIZE - 12);
+                        g2d.setColor(Color.WHITE);
+                        g2d.setFont(new Font("Segoe UI", Font.BOLD, 16));
+                        FontMetrics fm = g2d.getFontMetrics();
+                        String symbol = "Z";
+                        int sx = x + (CELL_SIZE - fm.stringWidth(symbol)) / 2;
+                        int sy = y + ((CELL_SIZE - fm.getHeight()) / 2) + fm.getAscent();
+                        g2d.drawString(symbol, sx, sy);
+                    }
+                } else {
+                    g2d.setFont(new Font("Segoe UI", Font.BOLD, 16));
+                    g2d.setColor(getSymbolColor(cell));
+                    String symbol = String.valueOf(cell);
+                    FontMetrics fm = g2d.getFontMetrics();
+                    int sx = x + (CELL_SIZE - fm.stringWidth(symbol)) / 2;
+                    int sy = y + ((CELL_SIZE - fm.getHeight()) / 2) + fm.getAscent();
+                    g2d.drawString(symbol, sx, sy);
+                }
             }
+        }
+
+        if (animating && fromPos != null && toPos != null) {
+            float px = lerp(fromPos.x, toPos.x, animationProgress);
+            float py = lerp(fromPos.y, toPos.y, animationProgress);
+
+            int zx = Math.round(px * CELL_SIZE);
+            int zy = Math.round(py * CELL_SIZE);
+
+            g2d.setColor(new Color(33, 150, 243));
+            g2d.fillOval(zx + 6, zy + 6, CELL_SIZE - 12, CELL_SIZE - 12);
+
+            g2d.setColor(Color.WHITE);
+            g2d.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            FontMetrics fm = g2d.getFontMetrics();
+            String symbol = "Z";
+            int sx = zx + (CELL_SIZE - fm.stringWidth(symbol)) / 2;
+            int sy = zy + ((CELL_SIZE - fm.getHeight()) / 2) + fm.getAscent();
+            g2d.drawString(symbol, sx, sy);
         }
     }
 
@@ -519,6 +580,9 @@ public class GUIMain extends JFrame {
     }
 
     private void resetResult() {
+        if (animationTimer != null && animationTimer.isRunning()) {
+            animationTimer.stop();
+        }
         solution = null;
         currentStep = 0;
         solutionLabel.setText("Solution: -");
@@ -532,6 +596,44 @@ public class GUIMain extends JFrame {
         boardPanel.repaint();
     }
 
+    private void animateToStep(int targetStep) {
+        if (animationTimer != null && animationTimer.isRunning()) {
+            animationTimer.stop();
+        }
+
+        animationFromStep = currentStep;
+        animationToStep = targetStep;
+        animationProgress = 0f;
+
+        animationTimer = new Timer(ANIMATION_FRAME_MS, e -> {
+            animationProgress += (float) ANIMATION_FRAME_MS / ANIMATION_DURATION_MS;
+
+            if (animationProgress >= 1f) {
+                animationProgress = 1f;
+                ((Timer) e.getSource()).stop();
+                currentStep = animationToStep;
+                updateBoard();
+            } else {
+                boardPanel.repaint();
+            }
+        });
+
+        animationTimer.start();
+    }
+    private Point findPlayerPosition(char[][] board) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] == 'Z') {
+                    return new Point(j, i);
+                }
+            }
+        }
+        return null;
+    }
+
+    private float lerp(float a, float b, float t) {
+        return a + (b - a) * t;
+    }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new GUIMain());
     }
