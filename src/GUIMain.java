@@ -28,6 +28,7 @@ public class GUIMain extends JFrame {
     private JLabel solutionLabel;
 
     private static final int CELL_SIZE = 40;
+    private static final int MIN_CELL_SIZE = 14;
     
     // Minimal Modern Color Palette
     private static final Color BG_COLOR = new Color(250, 250, 250);      // Off-white
@@ -466,39 +467,48 @@ public class GUIMain extends JFrame {
 
         int[][] costs = map.getBoardCosts();
 
-        for (int i = 0; i < map.getRowCount(); i++) {
-            for (int j = 0; j < map.getColCount(); j++) {
-                int x = j * CELL_SIZE;
-                int y = i * CELL_SIZE;
+        int rows = map.getRowCount();
+        int cols = map.getColCount();
+        int cellSize = getCellSize(rows, cols);
+        int boardWidth = cols * cellSize;
+        int boardHeight = rows * cellSize;
+        int offsetX = Math.max(0, (boardPanel.getWidth() - boardWidth) / 2);
+        int offsetY = Math.max(0, (boardPanel.getHeight() - boardHeight) / 2);
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                int x = offsetX + (j * cellSize);
+                int y = offsetY + (i * cellSize);
                 char cell = board[i][j];
                 int cost = costs[i][j];
 
                 Color bgColor = getCostColor(cost);
                 g2d.setColor(bgColor);
-                g2d.fillRect(x, y, CELL_SIZE, CELL_SIZE);
+                g2d.fillRect(x, y, cellSize, cellSize);
 
                 g2d.setColor(BORDER_COLOR);
-                g2d.drawRect(x, y, CELL_SIZE, CELL_SIZE);
+                g2d.drawRect(x, y, cellSize, cellSize);
 
                 if (cell == 'Z') {
                     if (!animating) {
                         g2d.setColor(ACCENT_COLOR);
-                        g2d.fillOval(x + 6, y + 6, CELL_SIZE - 12, CELL_SIZE - 12);
+                        int pad = Math.max(2, cellSize / 6);
+                        g2d.fillOval(x + pad, y + pad, cellSize - (pad * 2), cellSize - (pad * 2));
                         g2d.setColor(Color.WHITE);
-                        g2d.setFont(new Font("Segoe UI", Font.BOLD, 16));
+                        g2d.setFont(new Font("Segoe UI", Font.BOLD, Math.max(10, cellSize / 2)));
                         FontMetrics fm = g2d.getFontMetrics();
                         String symbol = "Z";
-                        int sx = x + (CELL_SIZE - fm.stringWidth(symbol)) / 2;
-                        int sy = y + ((CELL_SIZE - fm.getHeight()) / 2) + fm.getAscent();
+                        int sx = x + (cellSize - fm.stringWidth(symbol)) / 2;
+                        int sy = y + ((cellSize - fm.getHeight()) / 2) + fm.getAscent();
                         g2d.drawString(symbol, sx, sy);
                     }
                 } else {
-                    g2d.setFont(new Font("Segoe UI", Font.BOLD, 16));
+                    g2d.setFont(new Font("Segoe UI", Font.BOLD, Math.max(10, cellSize / 2)));
                     g2d.setColor(getSymbolColor(cell));
                     String symbol = String.valueOf(cell);
                     FontMetrics fm = g2d.getFontMetrics();
-                    int sx = x + (CELL_SIZE - fm.stringWidth(symbol)) / 2;
-                    int sy = y + ((CELL_SIZE - fm.getHeight()) / 2) + fm.getAscent();
+                    int sx = x + (cellSize - fm.stringWidth(symbol)) / 2;
+                    int sy = y + ((cellSize - fm.getHeight()) / 2) + fm.getAscent();
                     g2d.drawString(symbol, sx, sy);
                 }
             }
@@ -508,20 +518,30 @@ public class GUIMain extends JFrame {
             float px = lerp(fromPos.x, toPos.x, animationProgress);
             float py = lerp(fromPos.y, toPos.y, animationProgress);
 
-            int zx = Math.round(px * CELL_SIZE);
-            int zy = Math.round(py * CELL_SIZE);
+            int zx = offsetX + Math.round(px * cellSize);
+            int zy = offsetY + Math.round(py * cellSize);
 
             g2d.setColor(new Color(33, 150, 243));
-            g2d.fillOval(zx + 6, zy + 6, CELL_SIZE - 12, CELL_SIZE - 12);
+            int pad = Math.max(2, cellSize / 6);
+            g2d.fillOval(zx + pad, zy + pad, cellSize - (pad * 2), cellSize - (pad * 2));
 
             g2d.setColor(Color.WHITE);
-            g2d.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            g2d.setFont(new Font("Segoe UI", Font.BOLD, Math.max(10, cellSize / 2)));
             FontMetrics fm = g2d.getFontMetrics();
             String symbol = "Z";
-            int sx = zx + (CELL_SIZE - fm.stringWidth(symbol)) / 2;
-            int sy = zy + ((CELL_SIZE - fm.getHeight()) / 2) + fm.getAscent();
+            int sx = zx + (cellSize - fm.stringWidth(symbol)) / 2;
+            int sy = zy + ((cellSize - fm.getHeight()) / 2) + fm.getAscent();
             g2d.drawString(symbol, sx, sy);
         }
+    }
+
+    private int getCellSize(int rows, int cols) {
+        if (rows <= 0 || cols <= 0) return CELL_SIZE;
+        int panelW = Math.max(1, boardPanel.getWidth());
+        int panelH = Math.max(1, boardPanel.getHeight());
+        int fitSize = Math.min(panelW / cols, panelH / rows);
+        int size = Math.min(CELL_SIZE, fitSize);
+        return Math.max(MIN_CELL_SIZE, size);
     }
 
     private Color getCostColor(int cost) {
