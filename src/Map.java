@@ -9,6 +9,7 @@ public class Map {
     private int maxDigit; 
     private int initX, initY;
     private int targetX, targetY;
+    private boolean hasDigit;
 
     public boolean parseFile(String filepath){
         try {
@@ -50,6 +51,7 @@ public class Map {
                     else if (Character.isDigit(c)){
                         int digit = Character.getNumericValue(c);
                         digitInBoard[digit] = true;
+                        hasDigit = true;
                         if (digit > maxDigit){
                             maxDigit = digit;
                         }
@@ -101,6 +103,7 @@ public class Map {
     public char[][] getBoard(){ return board;}
     public int[][] getBoardCosts(){ return boardCosts;}
     public int getMaxDigit(){ return maxDigit;}
+    public boolean hasDigits(){ return hasDigit;}
     public int getInitialX(){ return initX;}
     public int getInitialY(){ return initY;}
     public int getTargetX(){ return targetX;}

@@ -4,9 +4,11 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
+        while (true) {
         Map map = new Map();
-        System.out.println(">> Masukkan file input: ");
+        System.out.println(">> Masukkan file input (EXIT untuk keluar): ");
         String file = sc.nextLine().trim();
+        if (file.toLowerCase().equalsIgnoreCase("exit")) break;
         String inputName = new File(file).getName();
         String inputPath = "../test/input/" + inputName;
         if (!map.parseFile(inputPath)) return;
@@ -62,7 +64,8 @@ public class Main{
             System.out.println("Solusi tidak ditemukan!");
             System.out.println("Anda bisa melihat iterasi yang dilakukan di file test/iteration/" + inputName);
         }
-        sc.close();
+    }
+    sc.close();
     }
 
     private static void playback(Scanner sc, Algorithm solve, String steps){

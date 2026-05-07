@@ -58,7 +58,10 @@ public class Algorithm{
         int manhattan = Math.abs(x-targetX) + Math.abs(y-targetY);
         switch (heuristicType){
             case "H2":
-                return manhattan * minCost; // INI NANTI AJA PAS BIKIN BONUS
+                int dx = x-targetX; 
+                int dy = y-targetY;
+                double euclidean = Math.sqrt(dx*dx + dy*dy);
+                return (int)(euclidean * minCost); 
             case "H3":
                 return (manhattan + Math.abs(targetX - map.getTargetX()) + Math.abs(targetY - map.getTargetY())) * minCost; 
             case "H1":
@@ -131,12 +134,17 @@ public class Algorithm{
         }
     }
 
+    private State buildStartState(){
+        int initialDigit = map.hasDigits() ? 0 : (map.getMaxDigit() + 1);
+        return new State(map.getInitialX(), map.getInitialY(), 0, 0, "", initialDigit, false);
+    }
+
     private State solveBestFirst(String algorithm){
         PriorityQueue<State> queue = new PriorityQueue<>();
         boolean[][][] visited = new boolean[map.getRowCount()][map.getColCount()][11];
 
         try (PrintWriter wr =new PrintWriter(new FileWriter(iterationFilePath))){
-            State start = new State(map.getInitialX(), map.getInitialY(), 0, 0, "", 0, false);
+            State start = buildStartState();
             queue.add(start);
 
             while(!queue.isEmpty()){
@@ -185,7 +193,7 @@ public class Algorithm{
         boolean[][][] visited = new boolean[map.getRowCount()][map.getColCount()][11];
 
         try (PrintWriter wr =new PrintWriter(new FileWriter(iterationFilePath))){
-            State start = new State(map.getInitialX(), map.getInitialY(), 0, 0, "", 0, false);
+            State start = buildStartState();
             queue.add(start);
 
             while(!queue.isEmpty()){
@@ -234,7 +242,7 @@ public class Algorithm{
         boolean[][][] visited = new boolean[map.getRowCount()][map.getColCount()][11];
 
         try (PrintWriter wr =new PrintWriter(new FileWriter(iterationFilePath))){
-            State start = new State(map.getInitialX(), map.getInitialY(), 0, 0, "", 0, false);
+            State start = buildStartState();
             stack.push(start);
 
             while(!stack.isEmpty()){
