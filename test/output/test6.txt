@@ -1,0 +1,102 @@
+Solusi : RDLURULDR
+Cost : 320
+Initial
+XXXXXXXXXX
+XZ**0X***X
+X*XX*X*X*X
+X*X****1*X
+X*X**X***X
+X***XX2*OX
+X*****X**X
+XXXXXXXXXX
+
+Step 1 : R
+XXXXXXXXXX
+X***ZX***X
+X*XX*X*X*X
+X*X****1*X
+X*X**X***X
+X***XX2*OX
+X*****X**X
+XXXXXXXXXX
+
+Step 2 : D
+XXXXXXXXXX
+X***0X***X
+X*XX*X*X*X
+X*X****1*X
+X*X*ZX***X
+X***XX2*OX
+X*****X**X
+XXXXXXXXXX
+
+Step 3 : L
+XXXXXXXXXX
+X***0X***X
+X*XX*X*X*X
+X*X****1*X
+X*XZ*X***X
+X***XX2*OX
+X*****X**X
+XXXXXXXXXX
+
+Step 4 : U
+XXXXXXXXXX
+X***0X***X
+X*XX*X*X*X
+X*XZ***1*X
+X*X**X***X
+X***XX2*OX
+X*****X**X
+XXXXXXXXXX
+
+Step 5 : R
+XXXXXXXXXX
+X***0X***X
+X*XX*X*X*X
+X*X****1ZX
+X*X**X***X
+X***XX2*OX
+X*****X**X
+XXXXXXXXXX
+
+Step 6 : U
+XXXXXXXXXX
+X***0X**ZX
+X*XX*X*X*X
+X*X****1*X
+X*X**X***X
+X***XX2*OX
+X*****X**X
+XXXXXXXXXX
+
+Step 7 : L
+XXXXXXXXXX
+X***0XZ**X
+X*XX*X*X*X
+X*X****1*X
+X*X**X***X
+X***XX2*OX
+X*****X**X
+XXXXXXXXXX
+
+Step 8 : D
+XXXXXXXXXX
+X***0X***X
+X*XX*X*X*X
+X*X****1*X
+X*X**X***X
+X***XXZ*OX
+X*****X**X
+XXXXXXXXXX
+
+Step 9 : R
+XXXXXXXXXX
+X***0X***X
+X*XX*X*X*X
+X*X****1*X
+X*X**X***X
+X***XX2*ZX
+X*****X**X
+XXXXXXXXXX
+

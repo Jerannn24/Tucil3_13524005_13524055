@@ -326,7 +326,7 @@ XXXXXXX
 
 Step 5 : R
 XXXXXXX
-X****ZX
+X0***ZX
 X**X**X
 X****OX
 X1***LX
@@ -383,7 +383,7 @@ XXXXXXX
 
 Step 5 : D
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X****OX
 X1***LX
@@ -439,7 +439,7 @@ XXXXXXX
 
 Step 5 : D
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X****OX
 X1***LX
@@ -448,7 +448,7 @@ XXXXXXX
 
 Step 6 : R
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X****OX
 X1***LX
@@ -504,7 +504,7 @@ XXXXXXX
 
 Step 5 : D
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X****OX
 X1***LX
@@ -513,7 +513,7 @@ XXXXXXX
 
 Step 6 : R
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X****OX
 X1***LX
@@ -522,7 +522,7 @@ XXXXXXX
 
 Step 7 : U
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X**Z*OX
 X1***LX
@@ -578,7 +578,7 @@ XXXXXXX
 
 Step 5 : D
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X****OX
 X1***LX
@@ -643,7 +643,7 @@ XXXXXXX
 
 Step 5 : D
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X****OX
 X1***LX
@@ -652,7 +652,7 @@ XXXXXXX
 
 Step 6 : R
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X****OX
 X1***LX
@@ -661,7 +661,7 @@ XXXXXXX
 
 Step 7 : U
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X**Z*OX
 X1***LX
@@ -670,7 +670,7 @@ XXXXXXX
 
 Step 8 : R
 XXXXXXX
-X*****X
+X0****X
 X**X**X
 X****ZX
 X1***LX

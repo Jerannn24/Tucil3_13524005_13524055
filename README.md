@@ -1,46 +1,44 @@
 # Ancient Ruins Explorer: The Lost Paths of the Relic
 # TUGAS KECIL 3 - STRATEGI ALGORITMA
-## Description
-Deep beneath the dust of forgotten temples lies a labyrinth of corridors, traps, and relic markers. In this project, a traveler known as the Ancient Ruins Explorer must navigate a grid-shaped ruin, avoid walls and hazards, collect ordered target digits when present, and reach the sacred goal tile.
+## Deskripsi
+Program ini membandingkan beberapa strategi pencarian rute (pathfinding), termasuk UCS, GBFS, A*, BFS, dan DFS, untuk mengungkapkan bagaimana perilaku dari setiap algoritma saat rutenya sempit, mahal, atau penuh jalan pintas yang menipu. Mode konsol dan mode grafis disediakan sehingga perjalanan dapat diperiksa langkah demi langkah.
 
-The program compares multiple pathfinding strategies, including UCS, GBFS, A*, BFS, and DFS, to reveal how each algorithm behaves when the route is narrow, costly, or full of misleading shortcuts. A console mode and a graphical mode are provided so the journey can be inspected step by step.
-
-## Team Members
+## Anggota Tim
 - Geraldo Artemius - 13524005
 - Junior Natra Situmorang - 13524055
 
-## How to Run the Program
-This project uses Java. The commands below assume you run them from the `src` folder so the relative paths to `../test/input`, `../test/iteration`, and `../test/output` work correctly.
+## Cara Menjalankan Program
+Proyek ini menggunakan Java. File `.class` hasil kompilasi akan diletakkan di dalam direktori `bin`. Pastikan Anda menjalankan perintah dari root direktori proyek, atau arahkan ke `bin` jika menjalankan secara independen, agar jalur file ke `test/input`, `test/iteration`, dan `test/output` dapat bekerja dengan benar.
 
-### 1. Compile the source files
+### 1. Kompilasi file source
+Dari root direktori proyek:
 ```bash
-cd src
-javac *.java
+javac -d bin src/*.java
 ```
 
-### 2. Run the console version
+### 2. Jalankan versi konsol
 ```bash
-java Main
+java -cp bin Main
 ```
 
-### 3. Run the graphical version
+### 3. Jalankan versi grafis (GUI)
 ```bash
-java GUIMain
+java -cp bin GUIMain
 ```
 
-### 4. Provide input when prompted
-When the program asks for an input file, type only the filename located in `test/input/`.
+### 4. Masukkan input saat diminta
+Ketika program meminta file input, ketikkan hanya nama file yang berada di dalam `test/input/`.
 
-Example:
+Contoh:
 ```text
 test1.txt
 ```
 
-### 5. Optional output files
-- Iteration logs are written to `test/iteration/`
-- Saved solutions are written to `test/output/`
+### 5. File output opsional
+- Log iterasi akan ditulis ke `test/iteration/`
+- Hasil penyelesaian (solusi) yang disimpan akan ditulis ke `test/output/`
 
-## Project Structure
+## Struktur Proyek
 ```text
 /
 ├── src/
@@ -57,41 +55,41 @@ test1.txt
 └── LICENSE
 ```
 
-## File Descriptions
-- `src/Main.java` - Console entry point. Handles input selection, algorithm selection, playback, and saving solutions.
-- `src/GUIMain.java` - Swing-based graphical interface for visualizing the map, algorithm result, and step-by-step playback.
-- `src/Algorithm.java` - Core pathfinding logic for UCS, GBFS, A*, BFS, and DFS.
-- `src/Map.java` - Input parser and validator for board dimensions, tiles, targets, and cost matrix.
-- `src/State.java` - Search node representation used by the algorithms.
-- `test/input/` - Input test cases for the ruin maps.
-- `test/iteration/` - Generated iteration traces during solving.
-- `test/output/` - Saved solution files.
-- `README.md` - Project overview and usage guide.
+## Deskripsi File
+- `src/Main.java` - Titik masuk dari mode konsol. Menangani pemilihan test case, pemilihan algoritma, memutar ulang visualisasi konsol, dan menyimpan solusi.
+- `src/GUIMain.java` - Antarmuka grafis berbasis Swing untuk melakukan visualisasi peta, hasil algoritma, peta iterasi tahap demi langkah.
+- `src/Algorithm.java` - Logika inti penelusuran graf/pohon untuk algoritma UCS, GBFS, A*, BFS, dan DFS.
+- `src/Map.java` - Pembaca input dan validator untuk ukuran peta, ubin (tiles), target, dan matriks cost (biaya).
+- `src/State.java` - Representasi node pencarian yang digunakan oleh algoritma penelusuran jalur.
+- `test/input/` - Tempat penyimpanan file input peta (map).
+- `test/iteration/` - Trace dari hasil iterasi algoritma pathfinding.
+- `test/output/` - File output yang berisi solusi pathfinding pengguna.
+- `README.md` - Gambaran proyek dan petunjuk penggunaan.
 
-## Input and Output
+## Input dan Output
 
 ### Input
-The program expects a text file with the following format:
-1. First line: two integers `N M` representing the number of rows and columns.
-2. Next `N` lines: the grid map.
-	- `X` = wall
-	- `*` = open path
-	- `Z` = start position, exactly one
-	- `O` = goal position, exactly one
-	- `0`, `1`, `2`, ... = optional ordered digit targets
-3. Next `N` lines: the cost matrix with `N x M` integers.
+Program mengharapkan file teks berekstensi .txt dengan format berikut:
+1. Baris pertama: dua integer `N M` yang mewakili jumlah baris dan kolom.
+2. `N` baris berikutnya: peta grid.
+	- `X` = dinding (wall)
+	- `*` = jalan terbuka (path)
+	- `Z` = posisi awal (titik mulai), tepat satu
+	- `O` = posisi target akhir (tujuan), tepat satu
+	- `0`, `1`, `2`, ... = target angka yang secara opsional harus dilewati secara berurutan.
+3. `N` baris selanjutnya: matriks ukuran cost grid `N x M` bilangan bulat.
 
 ### Output
-The program prints:
-- the solution path, if one is found
-- the total cost of the solution
-- the board state for each step
-- execution time
-- total number of iterations
+Program akan mencetak:
+- Jalur/rute solusi panjang, jika ditemukan
+- Total cost solusi/rute terpendek yang dilalui
+- Tampilan keadaan papan untuk setiap tahap penyelesaian rute (playback)
+- Waktu eksekusi yang ditempuh algoritma pathfinding 
+- Total angka/banyak proses iterasi dari algoritma (state evaluation)
 
-If the user chooses to save the result, the program also writes a solution file containing the path and step-by-step board snapshots.
+Lalu, jika pengguna memilih untuk menyimpan output/solusi yang berjalan, maka program akan mencatat output ke dalam sebuah file solusi di output/test yang berupa solusi pergerakan (snapshots iterasi) dari tahap ke tahap secara logis.
 
-### Example Input
+### Contoh Input
 ```text
 5 8
 XXXXXXXX
@@ -106,9 +104,9 @@ XXXXXXXX
 999 999 999 999 999 999 999 999
 ```
 
-## Additional Notes
-- The map must contain exactly one `Z` and one `O`.
-- If digits are used, they must appear in order without skipping values.
-- `X` tiles should use a very large cost value such as `999` in the cost matrix.
-- The program supports both manual playback in the console and interactive visualization in the GUI.
-- Relative paths are important: run the program from `src` so the input and output folders are found correctly.
+## Catatan Tambahan
+- Peta/grid harus memiliki tepat satu titik permulaan (`Z`) dan satu titik hasil/tujuan (`O`).
+- Jika sebuah peta/grid mengandung input digit (`0`, `1`, `2`, dst... ), seluruh urutan target angka tersebut harus dilalui secara benar dan berurutan dari angka terendah ke angka tertinggi tanpa melompat/melewati angka apa pun.
+- Dinding grid matriks cost yang berupa variabel `X` diberikan value penalty dengan nilai cost sangat besar di file input (Contoh: `999`). 
+- Menjalankan file secara GUI akan sangat menyenangkan apabila kalian bisa berinteraksi di dalam panel map GUI. 
+- Penting diingat: Saat menjalankan map program disarankan pastikan bahwa anda mengarah ke folder awal proyek (root project) sehingga path akses folder input dan folder outputnya akan benar termuat.

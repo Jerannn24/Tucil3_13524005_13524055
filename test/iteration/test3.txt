@@ -1,0 +1,12 @@
+=== Iteration 1 ===
+Initial
+Z***
+****
+*X**
+***O
+
+   -> U GAME OVER (Keluar dari batas papan)!
+   -> D GAME OVER (Keluar dari batas papan)!
+   -> L GAME OVER (Keluar dari batas papan)!
+   -> R GAME OVER (Keluar dari batas papan)!
+

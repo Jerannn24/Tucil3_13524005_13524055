@@ -1,0 +1,27 @@
+=== Iteration 1 ===
+Initial
+XXXXX
+X**LX
+X*LOX
+XZ*LX
+XXXXX
+
+   -> R GAME OVER (Melewati Lava)!
+
+=== Iteration 2 ===
+Initial
+XXXXX
+X**LX
+X*LOX
+XZ*LX
+XXXXX
+
+Step 1 : U
+XXXXX
+XZ*LX
+X*LOX
+X**LX
+XXXXX
+
+   -> R GAME OVER (Melewati Lava)!
+

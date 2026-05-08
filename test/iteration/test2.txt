@@ -1,0 +1,437 @@
+=== Iteration 1 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+   -> D GAME OVER (Angka tidak sesuai urutan)
+
+=== Iteration 2 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : R
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X*ZX*X*XX
+X1******X
+XXXXXXXXX
+
+
+=== Iteration 3 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : R
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X*ZX*X*XX
+X1******X
+XXXXXXXXX
+
+Step 2 : D
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X**X*X*XX
+X1Z*****X
+XXXXXXXXX
+
+   -> L GAME OVER (Angka tidak sesuai urutan)
+
+=== Iteration 4 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : R
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X*ZX*X*XX
+X1******X
+XXXXXXXXX
+
+Step 2 : D
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X**X*X*XX
+X1Z*****X
+XXXXXXXXX
+
+Step 3 : R
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X**X*X*XX
+X1*****ZX
+XXXXXXXXX
+
+   -> L GAME OVER (Angka tidak sesuai urutan)
+
+=== Iteration 5 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+   -> D GAME OVER (Angka tidak sesuai urutan)
+
+=== Iteration 6 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 2 : R
+XXXXXXXXX
+X***0**ZX
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+
+=== Iteration 7 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 2 : R
+XXXXXXXXX
+X***0**ZX
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 3 : L
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+
+=== Iteration 8 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 2 : R
+XXXXXXXXX
+X***0**ZX
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 3 : L
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 4 : D
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X**X*X*XX
+XZ******X
+XXXXXXXXX
+
+
+=== Iteration 9 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 2 : R
+XXXXXXXXX
+X***0**ZX
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 3 : L
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 4 : D
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X**X*X*XX
+XZ******X
+XXXXXXXXX
+
+Step 5 : R
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X**X*X*XX
+X1*****ZX
+XXXXXXXXX
+
+
+=== Iteration 10 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 2 : R
+XXXXXXXXX
+X***0**ZX
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 3 : L
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 4 : D
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X**X*X*XX
+XZ******X
+XXXXXXXXX
+
+Step 5 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+
+=== Iteration 11 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 2 : R
+XXXXXXXXX
+X***0**ZX
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 3 : L
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 4 : D
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X**X*X*XX
+XZ******X
+XXXXXXXXX
+
+Step 5 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 6 : R
+XXXXXXXXX
+X***0**ZX
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+
+=== Iteration 12 ===
+Initial
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+XZ*X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 1 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 2 : R
+XXXXXXXXX
+X***0**ZX
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 3 : L
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 4 : D
+XXXXXXXXX
+X***0***X
+X*XX*X*OX
+X**X*X*XX
+XZ******X
+XXXXXXXXX
+
+Step 5 : U
+XXXXXXXXX
+XZ**0***X
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 6 : R
+XXXXXXXXX
+X***0**ZX
+X*XX*X*OX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Step 7 : D
+XXXXXXXXX
+X***0***X
+X*XX*X*ZX
+X**X*X*XX
+X1******X
+XXXXXXXXX
+
+Found Solution
+
